@@ -2,43 +2,38 @@ import { Button } from '@/components/Button'
 import ArrowDownIcon from '@/components/icons/ArrowDownIcon'
 import BriefcaseIcon from '@/components/icons/BriefcaseIcon'
 import Image from 'next/image'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoCoil from '@/images/logos/coil.svg'
+import logoFiverr from '@/images/logos/fiverr.svg'
+import logoDropflow from '@/images/logos/dropflow.svg'
 
-function Resume() {
+const Resume = () => {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'Dropflow',
+      title: 'Lead Full Stack Engineer',
+      logo: logoDropflow,
+      start: 'June, 2021',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
+      link: 'https://dropflow.app/',
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Cheer Music Maker',
+      title: 'Full Stack Engineer',
+      logo: logoCoil,
+      start: 'Feb, 2020',
+      end: 'Sept, 2020',
+      link: 'https://www.cheer-music-maker.com/',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
-    },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'Fiverr',
+      title: 'Freelance Web Developer',
+      logo: logoFiverr,
+      start: '2019',
+      end: 'Present',
+      link: 'https://www.fiverr.com/rh_rahat_47',
     },
   ]
 
@@ -46,7 +41,7 @@ function Resume() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <span className="ml-3">Work Experiences</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
@@ -57,7 +52,9 @@ function Resume() {
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {role.company}
+                <a href={role.link} target="_blank" rel="noopener noreferrer">
+                  {role.company}
+                </a>
               </dd>
               <dt className="sr-only">Role</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -83,7 +80,7 @@ function Resume() {
         ))}
       </ol>
       <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
+        Download Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
