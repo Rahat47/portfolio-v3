@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import MailIcon from '@/components/icons/MainIcon'
+import { MailIcon } from 'lucide-react'
 
 function Newsletter() {
   return (

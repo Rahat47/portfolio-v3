@@ -1,6 +1,13 @@
 import Link from 'next/link'
-import { cva } from 'cva'
+import { VariantProps, cva } from 'cva'
 import { cn } from '@/lib/utils'
+
+// type ButtonProps = {
+//   variant?: 'primary' | 'secondary';
+//   className?: string;
+//   href?: string;
+//   children: ReactNode;
+// };
 
 const buttonVariants = cva(
   'inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none',
@@ -19,10 +26,29 @@ const buttonVariants = cva(
   }
 )
 
-export function Button({ variant = 'primary', className, href, ...props }) {
-  const Component = href ? Link : 'button'
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  href?: string
+}
+
+export function Button({
+  variant = 'primary',
+  className,
+  href,
+  ...props
+}: ButtonProps) {
+  const Component = 'button'
 
   className = cn(className, buttonVariants({ variant }))
 
-  return <Component className={className} href={href} {...props} />
+  if (href) {
+    return (
+      <Link href={href}>
+        <button role="link" className={className} {...props} />
+      </Link>
+    )
+  }
+
+  return <Component className={className} {...props} />
 }

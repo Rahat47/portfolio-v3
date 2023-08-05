@@ -1,13 +1,21 @@
 import { Button } from '@/components/Button'
-import ArrowDownIcon from '@/components/icons/ArrowDownIcon'
-import BriefcaseIcon from '@/components/icons/BriefcaseIcon'
 import Image from 'next/image'
 import logoCoil from '@/images/logos/coil.svg'
 import logoFiverr from '@/images/logos/fiverr.svg'
 import logoDropflow from '@/images/logos/dropflow.svg'
+import { ArrowDownIcon, BriefcaseIcon } from 'lucide-react'
+
+type ResumeItem = {
+  company: string
+  title: string
+  logo: any
+  start: string | { label: string; dateTime: number }
+  end: string | { label: string; dateTime: number }
+  link: string
+}
 
 const Resume = () => {
-  let resume = [
+  let resume: ResumeItem[] = [
     {
       company: 'Dropflow',
       title: 'Lead Full Stack Engineer',
@@ -63,16 +71,34 @@ const Resume = () => {
               <dt className="sr-only">Date</dt>
               <dd
                 className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
+                aria-label={`${
+                  typeof role.start === 'string'
+                    ? role?.start
+                    : role.start.label
+                } until ${
+                  typeof role.end === 'string' ? role?.end : role.end.label
                 }`}
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
+                <time
+                  dateTime={
+                    typeof role.start === 'string'
+                      ? role?.start
+                      : role.start.dateTime.toString()
+                  }
+                >
+                  {typeof role.start === 'string'
+                    ? role?.start
+                    : role.start.label}
                 </time>{' '}
                 <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
+                <time
+                  dateTime={
+                    typeof role.end === 'string'
+                      ? role?.end
+                      : role.end.dateTime.toString()
+                  }
+                >
+                  {typeof role.end === 'string' ? role?.end : role.end.label}
                 </time>
               </dd>
             </dl>

@@ -1,11 +1,5 @@
 import Head from 'next/head'
 import Container from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
 
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -15,6 +9,12 @@ import Newsletter from '@/modules/Home/NewsLetter'
 import SocialLink from '@/modules/Home/SocialLink'
 import Resume from '@/modules/Home/Resume'
 import Photos from '@/modules/Home/Photos'
+import {
+  GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from 'lucide-react'
 
 export default function Home({ articles }) {
   return (
@@ -55,12 +55,12 @@ export default function Home({ articles }) {
             <SocialLink
               href="https://github.com/Rahat47"
               aria-label="Follow on GitHub"
-              icon={GitHubIcon}
+              icon={GithubIcon}
             />
             <SocialLink
               href="https://www.linkedin.com/in/rh-rahat/"
               aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
+              icon={LinkedinIcon}
             />
           </div>
         </div>
@@ -69,9 +69,16 @@ export default function Home({ articles }) {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
+            {articles.map(
+              (article: {
+                slug: string
+                title: string
+                date: string
+                description: string
+              }) => (
+                <Article key={article.slug} article={article} />
+              )
+            )}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />

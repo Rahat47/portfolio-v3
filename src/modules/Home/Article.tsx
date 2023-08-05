@@ -1,7 +1,16 @@
 import { Card } from '@/components/Card'
 import { formatDate } from '@/lib/formatDate'
 
-function Article({ article }) {
+type ArticleProps = {
+  article: {
+    slug: string
+    title: string
+    date: string
+    description: string
+  }
+}
+
+function Article({ article }: ArticleProps) {
   return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>
