@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Container } from '@/components/Container'
+import Container from '@/components/Container'
 import avatarImage from '@/images/avatar.jpg'
 
 function CloseIcon(props) {
