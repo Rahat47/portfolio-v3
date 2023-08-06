@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-type SectionProps = {
+export type SectionProps = {
   title: string
   children: React.ReactNode
 }
