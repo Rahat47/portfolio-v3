@@ -6,8 +6,9 @@ import { Popover, PopoverProps, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import Container from '@/components/Container'
-import avatarImage from '@/images/avatar.jpg'
+import avatarImage from '@/images/own/home-1.jpg'
 import { ChevronDownIcon, MoonIcon, SunIcon, XIcon } from 'lucide-react'
+import { navigationItems } from '@/lib/data'
 
 type NavLinkProps = {
   href: string
@@ -19,7 +20,7 @@ type NavItemProps = {
   children: React.ReactNode
 }
 
-function MobileNavItem({ href, children }: NavLinkProps) {
+const MobileNavItem = ({ href, children }: NavLinkProps) => {
   return (
     <li>
       <Popover.Button as={Link} href={href} className="block py-2">
@@ -29,7 +30,7 @@ function MobileNavItem({ href, children }: NavLinkProps) {
   )
 }
 
-function MobileNavigation(props: PopoverProps<'div'>) {
+const MobileNavigation = (props: PopoverProps<'div'>) => {
   return (
     <Popover {...props}>
       <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
@@ -71,11 +72,11 @@ function MobileNavigation(props: PopoverProps<'div'>) {
             </div>
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                <MobileNavItem href="/about">About</MobileNavItem>
-                <MobileNavItem href="/articles">Articles</MobileNavItem>
-                <MobileNavItem href="/projects">Projects</MobileNavItem>
-                <MobileNavItem href="/speaking">Speaking</MobileNavItem>
-                <MobileNavItem href="/uses">Uses</MobileNavItem>
+                {navigationItems.map((item) => (
+                  <MobileNavItem href={item.path} key={item.name}>
+                    {item.name}
+                  </MobileNavItem>
+                ))}
               </ul>
             </nav>
           </Popover.Panel>
@@ -85,7 +86,7 @@ function MobileNavigation(props: PopoverProps<'div'>) {
   )
 }
 
-function NavItem({ href, children }: NavItemProps) {
+const NavItem = ({ href, children }: NavItemProps) => {
   let isActive = useRouter().pathname === href
 
   return (
@@ -108,21 +109,21 @@ function NavItem({ href, children }: NavItemProps) {
   )
 }
 
-function DesktopNavigation(props: React.HTMLProps<HTMLElement>) {
+const DesktopNavigation = (props: React.HTMLProps<HTMLElement>) => {
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="/about">About</NavItem>
-        <NavItem href="/articles">Articles</NavItem>
-        <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
+        {navigationItems.map((item) => (
+          <NavItem href={item.path} key={item.name}>
+            {item.name}
+          </NavItem>
+        ))}
       </ul>
     </nav>
   )
 }
 
-function ModeToggle() {
+const ModeToggle = () => {
   function disableTransitionsTemporarily() {
     document.documentElement.classList.add('[&_*]:!transition-none')
     window.setTimeout(() => {
@@ -130,7 +131,7 @@ function ModeToggle() {
     }, 0)
   }
 
-  function toggleMode() {
+  const toggleMode = () => {
     disableTransitionsTemporarily()
 
     let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -157,7 +158,7 @@ function ModeToggle() {
   )
 }
 
-function clamp(number: number, a: number, b: number): number {
+const clamp = (number: number, a: number, b: number) => {
   let min = Math.min(a, b)
   let max = Math.max(a, b)
   return Math.min(Math.max(number, min), max)
@@ -165,7 +166,7 @@ function clamp(number: number, a: number, b: number): number {
 
 interface AvatarContainerProps extends React.HTMLProps<HTMLDivElement> {}
 
-function AvatarContainer({ className, ...props }: AvatarContainerProps) {
+const AvatarContainer = ({ className, ...props }: AvatarContainerProps) => {
   return (
     <div
       className={clsx(
@@ -183,7 +184,7 @@ interface AvatarProps extends LinkProps {
   style?: React.CSSProperties
 }
 
-function Avatar({ large = false, className, ...props }: AvatarProps) {
+const Avatar = ({ large = false, className, ...props }: AvatarProps) => {
   return (
     <Link
       href="/"
@@ -205,7 +206,7 @@ function Avatar({ large = false, className, ...props }: AvatarProps) {
   )
 }
 
-export function Header() {
+const Header = () => {
   let isHomePage = useRouter().pathname === '/'
 
   let headerRef = useRef<HTMLDivElement>()
@@ -404,3 +405,5 @@ export function Header() {
     </>
   )
 }
+
+export default Header
