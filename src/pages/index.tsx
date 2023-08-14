@@ -42,13 +42,13 @@ export default function Home({ articles }) {
             Web Development, Brainstorming, and Making Cool Stuff
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            My name is Rahat and I am a proficient full-stack Web Developer with
-            a proven track record of delivering high-quality websites. I have
-            expertise in both Backend and Frontend development, and I enjoy
-            tackling complex problems. I am passionate about creating innovative
-            solutions, and I always welcome new challenges. I am a quick learner
-            and a collaborative team member. I am eager to expand my knowledge
-            and skills with the latest technologies.
+            I&rsquo;m Rahat, a 24-year-old full-stack web developer based in
+            Dhaka, Bangladesh. With 3+ years in the field, I excel in crafting
+            seamless online experiences. Proficient in JavaScript, Python, and
+            TypeScript, I tackle complex challenges and collaborate globally.
+            Beyond coding, I&rsquo;m an avid traveler, gamer, and action movie
+            enthusiast. Join me as I code, create, and explore the digital and
+            real worlds
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -74,7 +74,7 @@ export default function Home({ articles }) {
           </div>
         </div>
       </Container>
-      <Photos />
+      {/* <Photos /> */}
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
