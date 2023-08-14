@@ -10,7 +10,7 @@ import {
   LinkedinIcon,
   MailIcon,
 } from 'lucide-react'
-import portraitImage from '@/images/portrait.jpg'
+import portraitImage from '@/images/own/portrait.jpg'
 import SocialLink from '@/components/SocialLink'
 
 export default function About() {
@@ -29,7 +29,7 @@ export default function About() {
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
                 src={portraitImage}
-                alt=""
+                alt="rayhan rahat portrait"
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />
@@ -37,58 +37,89 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Spencer Sharp. I live in New York City, where I design the
-              future.
+              I’m Rayhan Rahat. Mastering Code and Crafting Experiences
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I’ve loved making things for as long as I can remember, and
-                wrote my first program when I was 6 years old, just two weeks
-                after my mom brought home the brand new Macintosh LC 550 that I
-                taught myself to type on.
+                Hello and welcome to my corner of the digital universe!
+                I&rsquo;m Rahat, a dedicated 24-year-old full-stack web
+                developer hailing from the vibrant city of Dhaka, Bangladesh. My
+                journey through the realms of web development began with an
+                Honours Degree in Accounting, an unexpected foundation that
+                later intertwined seamlessly with my passion for coding. Today,
+                I stand as a proud alchemist of code, turning intricate
+                challenges into elegant solutions.
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister’s motorcycle helmet, counted
-                down from three, and jumped — hoping the tree was tall enough
-                that with just a bit of momentum I’d be able to get to orbit.
+                For over three years, I&rsquo;ve been shaping the virtual
+                landscape, merging innovation with imagination. Proficiency in
+                languages like JavaScript and Python has equipped me to engineer
+                dynamic and intuitive web experiences. My mastery extends to
+                TypeScript and a multitude of frameworks, allowing me to adapt
+                and innovate swiftly. Whether it&rsquo;s backend intricacies or
+                the art of teamwork within a global developer community, I
+                thrive on pushing boundaries and co-creating digital
+                masterpieces.
               </p>
               <p>
-                I spent the next few summers indoors working on a rocket design,
-                while I recovered from the multiple surgeries it took to fix my
-                badly broken legs. It took nine iterations, but when I was 15 I
-                sent my dad’s Blackberry into orbit and was able to transmit a
-                photo back down to our family computer from space.
+                When I&rsquo;m not immersed in lines of code, I&rsquo;m a seeker
+                of experiences both digital and tangible. My passion for travel
+                has led me to explore diverse cultures and expand my horizons.
+                Gaming offers a unique avenue to conquer virtual realms and
+                challenge my strategic thinking. And who can resist the thrill
+                of action movies? I find inspiration in their pulse-pounding
+                narratives, infusing a touch of cinematic magic into my coding
+                endeavors. Music is my constant companion during work, fueling
+                my creativity as I design and develop.
               </p>
               <p>
-                Today, I’m the founder of Planetaria, where we’re working on
-                civilian space suits and manned shuttle kits you can assemble at
-                home so that the next generation of kids really <em>can</em>{' '}
-                make it to orbit — from the comfort of their own backyards.
+                As I traverse this exhilarating journey, my aspirations remain
+                steadfast. I envision a future where I collaborate with
+                exceptional teams on extraordinary projects that redefine the
+                web. My goal extends beyond code – I yearn to crisscross the
+                globe, learning from diverse cultures, and infusing fresh
+                perspectives into my work. Each line of code I write, each
+                virtual landscape I shape, is a step closer to realizing my
+                dreams. Join me on this odyssey as I continue to merge the
+                worlds of technology, creativity, and boundless possibility.
               </p>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="#" icon={TwitterIcon}>
+              <SocialLink
+                href="https://twitter.com/rh_rahat_dev"
+                icon={TwitterIcon}
+              >
                 Follow on Twitter
               </SocialLink>
-              <SocialLink href="#" icon={InstagramIcon} className="mt-4">
+              <SocialLink
+                href="https://www.instagram.com/rh.rahat0047/"
+                icon={InstagramIcon}
+                className="mt-4"
+              >
                 Follow on Instagram
               </SocialLink>
-              <SocialLink href="#" icon={GithubIcon} className="mt-4">
+              <SocialLink
+                href="https://github.com/Rahat47"
+                icon={GithubIcon}
+                className="mt-4"
+              >
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href="#" icon={LinkedinIcon} className="mt-4">
+              <SocialLink
+                href="https://www.linkedin.com/in/rh-rahat/"
+                icon={LinkedinIcon}
+                className="mt-4"
+              >
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
-                href="mailto:spencer@planetaria.tech"
+                href="mailto:djrayhan8@gmail.com"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                spencer@planetaria.tech
+                djrayhan8@gmail.com
               </SocialLink>
             </ul>
           </div>
