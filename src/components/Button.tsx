@@ -2,15 +2,8 @@ import Link from 'next/link'
 import { VariantProps, cva } from 'cva'
 import { cn } from '@/lib/utils'
 
-// type ButtonProps = {
-//   variant?: 'primary' | 'secondary';
-//   className?: string;
-//   href?: string;
-//   children: ReactNode;
-// };
-
 const buttonVariants = cva(
-  'inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none',
+  'inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-current',
   {
     variants: {
       variant: {

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import logoCoil from '@/images/logos/coil.svg'
 import logoFiverr from '@/images/logos/fiverr.svg'
 import logoDropflow from '@/images/logos/dropflow.svg'
+import logoInsaeng from '@/images/logos/insaeng-white.png'
 import { ArrowDownIcon, BriefcaseIcon } from 'lucide-react'
 
 type ResumeItem = {
@@ -17,14 +18,22 @@ type ResumeItem = {
 const Resume = () => {
   let resume: ResumeItem[] = [
     {
-      company: 'Dropflow',
+      company: 'Insaeng.co',
       title: 'Lead Full Stack Engineer',
-      logo: logoDropflow,
-      start: 'June, 2021',
+      logo: logoInsaeng,
+      start: 'July, 2023',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
+      link: 'https://insaeng.co/',
+    },
+    {
+      company: 'Dropflow',
+      title: 'Lead Full Stack Engineer',
+      logo: logoDropflow,
+      start: 'June, 2021',
+      end: 'July, 2023',
       link: 'https://dropflow.app/',
     },
     {
@@ -36,7 +45,7 @@ const Resume = () => {
       link: 'https://www.cheer-music-maker.com/',
     },
     {
-      company: 'Fiverr',
+      company: 'Fiverr & Upwork',
       title: 'Freelance Web Developer',
       logo: logoFiverr,
       start: '2019',
@@ -105,7 +114,12 @@ const Resume = () => {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button
+        href="#"
+        variant="secondary"
+        className="group mt-6 w-full"
+        // disabled
+      >
         Download Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
